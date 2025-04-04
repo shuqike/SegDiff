@@ -1,4 +1,6 @@
-This is the official repository of the paper [SegDiff: Image Segmentation with Diffusion Probabilistic Models](https://arxiv.org/abs/2112.00390)
+This is the fork of the official repository of the paper [SegDiff: Image Segmentation with Diffusion Probabilistic Models](https://arxiv.org/abs/2112.00390)
+
+The code was for `pytorch==1.9.0`. I updated the code so that it works for more recent pytorch versions (>2.0).
 
 The code is based on [Improved Denoising Diffusion Probabilistic Models.](https://github.com/openai/improved-diffusion)
 
