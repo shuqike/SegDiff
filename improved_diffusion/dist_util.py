@@ -69,7 +69,16 @@ def sync_params(params):
     """
     for p in params:
         with th.no_grad():
-            dist.broadcast(p, 0)
+            # Original code for torch==1.9.0
+            # dist.broadcast(p, 0)
+
+            # Updated code for torch > 2.0
+            # Instead of writing directly into 'p', broadcast a temporary copy:
+            p_tmp = p.clone()  # or p.clone().detach() if you want to be extra safe
+            dist.broadcast(p_tmp, src=0)
+
+            # Now copy that temporary data back into p (still under no_grad)
+            p.copy_(p_tmp)
 
 
 def _find_free_port():
