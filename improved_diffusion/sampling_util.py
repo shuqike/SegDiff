@@ -14,7 +14,9 @@ from tqdm import tqdm
 
 from . import dist_util
 from .metrics import FBound_metric, WCov_metric
-from ..datasets.monu import MonuDataset
+import sys
+sys.path.append("../datasets")
+from monu import MonuDataset
 from .utils import set_random_seed_for_iterations
 
 cityspallete = [
