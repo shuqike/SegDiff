@@ -483,6 +483,7 @@ class UNetModel(nn.Module):
             assert y.shape == (x.shape[0],)
             emb = emb + self.label_emb(y)
         former_frames_features = self.rrdb(conditioned_image.type(self.inner_dtype))
+        # Encoder part: E(F(x_t,t)+G(I), t)
         h = x.type(self.inner_dtype)
         for i, module in enumerate(self.input_blocks):
             h = module(h, emb)
